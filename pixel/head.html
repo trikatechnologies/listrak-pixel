@@ -1,0 +1,27 @@
+<script>
+  ;(function() {
+    var merchantId = '{{settings.merchantId}}'
+    var prefCenter = '{{settings.prefCenterName}}'
+    var emailIds = '{{settings.emailInputIds}}'.split(',')
+    if (!merchantId) {
+      console.error(
+        'Warning: No Listrak Merchant Id is defined. Please configure it in the apps admin.'
+      )
+      return
+    }
+    ;(function e() {
+      window.__listrak_merchant_id = merchantId
+      window.__listrak_pref_center = prefCenter
+      window.__listrak_email_ids = emailIds
+      var e = document.createElement('script')
+      ;(e.type = 'text/javascript'),
+        (e.async = true),
+        (e.src =
+          'https://cdn.listrakbi.com/scripts/script.js?m=' +
+          merchantId +
+          '&v=1')
+      var t = document.getElementsByTagName('script')[0]
+      t.parentNode.insertBefore(e, t)
+    })()
+  })()
+</script>

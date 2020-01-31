@@ -1,0 +1,6 @@
+{
+  "admin/editor.listrakOnSiteRecommendationsBlock.title": "Listrak On-site Recommendations Block",
+  "admin/editor.listrakOnSiteRecommendationsBlock.description": "Enter a Merchandise Block ID from Listrak to display a shelf of recommended products",
+  "admin/editor.listrakOnSiteRecommendationsBlock.merchandiseBlockId.title": "Merchandise Block ID",
+  "admin/editor.listrakOnSiteRecommendationsBlock.templateHTML.title": "Template HTML"
+}

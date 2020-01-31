@@ -1,0 +1,16 @@
+{
+  "name": "listrak-pixel",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "eslint --ext js,jsx,ts,tsx ."
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.7",
+    "eslint": "^6.8.0",
+    "eslint-config-vtex": "^11.2.1",
+    "eslint-config-vtex-react": "^5.1.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.4"
+  }
+}

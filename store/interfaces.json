@@ -1,0 +1,14 @@
+{
+  "pixel.listrak": {
+    "component": "index"
+  },
+  "store.custom.listrak-preference-center": {
+    "required": ["listrak-preference-center"]
+  },
+  "listrak-preference-center": {
+    "component": "PreferenceCenter"
+  },
+  "listrak-recommendations": {
+    "component": "OnSiteRecommendations"
+  }
+}
