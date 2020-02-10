@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Check to make sure Listrak script is loaded before activating event listener
+
 ## [0.0.1] - 2020-01-31
 
 ### Added
