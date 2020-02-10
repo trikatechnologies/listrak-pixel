@@ -96,6 +96,6 @@ export function handleEvents(event: PixelMessage) {
   }
 }
 
-if (canUseDOM && _ltk) {
+if (canUseDOM && typeof _ltk != 'undefined') {
   window.addEventListener('message', handleEvents)
 }
