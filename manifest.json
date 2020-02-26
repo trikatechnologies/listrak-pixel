@@ -4,13 +4,6 @@
   "version": "0.0.2",
   "title": "Listrak",
   "description": "An implementation of Listrak conversion tracking",
-  "billingOptions": {
-    "termsURL": "",
-    "support": {
-      "url": "https://support.vtex.com/hc/requests"
-    },
-    "free": true
-  },
   "builders": {
     "react": "3.x",
     "store": "0.x",
