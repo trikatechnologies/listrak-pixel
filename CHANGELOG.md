@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Updated docs to include instructions for adding Listrak app as a dependency of the store-theme
+
 ## [1.0.0] - 2020-02-26
 
 ### Removed
