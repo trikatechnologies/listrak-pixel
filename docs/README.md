@@ -18,6 +18,16 @@ This app provides pixel integration for Listrak metrics and cart abandonment fun
 
 ## (Optional) On-Site Recommendation Integration Block
 
+To use this optional block in your `store-theme`, you must add the Listrak app to your `store-theme`'s dependencies in `manifest.json`:
+
+```json
+"dependencies": {
+    "vtex.listrak-pixel": "1.x"
+  }
+```
+
+Then you may use this block in your layouts:
+
 - `"listrak-recommendations"`: The Listrak app provides this block which is designed to be added to the product page (`store.product`). It renders Listrak's On-Site Recommendations product shelf. The block takes two props: 
 
 | Prop name           | Type      | Description                                                                                 |
