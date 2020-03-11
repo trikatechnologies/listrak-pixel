@@ -34,7 +34,14 @@ export function handleEvents(event: PixelMessage) {
     }
     case 'vtex:productView': {
       const { product } = event.data
-      if (product.selectedSku && product.selectedSku.itemId) {
+      if(window.__listrak_useRefIdSetting && window.__listrak_useRefIdSetting == true)
+      {
+        if(product.selectedSku && product.selectedSku.referenceId.Value)
+        {
+        _ltk.Activity.AddProductBrowse(product.selectedSku.referenceId.Value)
+        }
+      }
+      else if (product.selectedSku && product.selectedSku.itemId) {
         _ltk.Activity.AddProductBrowse(product.selectedSku.itemId)
       }
       break
@@ -80,6 +87,19 @@ export function handleEvents(event: PixelMessage) {
       _ltk.Order.TaxTotal = transactionTax.toString()
       _ltk.Order.HandlingTotal = '0'
       _ltk.Order.OrderTotal = transactionTotal.toString()
+
+      if(window.__listrak_useRefIdSetting && window.__listrak_useRefIdSetting == true)
+      {
+        transactionProducts.forEach(product => {
+          _ltk.Order.AddItem(
+            product.skuRefId,
+            product.quantity,
+            product.sellingPrice.toString()
+          )
+        })
+      }
+      else
+      {
       transactionProducts.forEach(product => {
         _ltk.Order.AddItem(
           product.id,
@@ -87,6 +107,7 @@ export function handleEvents(event: PixelMessage) {
           product.sellingPrice.toString()
         )
       })
+    }
       _ltk.Order.Submit()
       break
     }

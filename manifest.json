@@ -33,6 +33,11 @@
         "title": "Preference Center Name",
         "description": "Enter the value to be inserted in the 'data-ltk-prefcenter' property of the div on the Preference Center page",
         "type": "string"
+      },
+      "useRefId": {
+        "title": "Use Reference Id",
+        "description": "Use reference Id rather than product id to link reviews to products",
+        "type": "boolean"
       }
     }
   },
