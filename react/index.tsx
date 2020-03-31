@@ -53,7 +53,7 @@ export function handleEvents(event: PixelMessage) {
       {
         items.forEach(item => {
           _ltk.SCA.AddItemWithLinks(
-            item.productRefId,
+            item.refId,
             item.quantity,
             item.price.toString(),
             item.name,

@@ -141,6 +141,7 @@ interface CartItem {
   name: string
   quantity: number
   productRefId: string
+  refId: string
   brand: string
   category: string
   detailUrl: string
