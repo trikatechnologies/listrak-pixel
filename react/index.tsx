@@ -49,6 +49,21 @@ export function handleEvents(event: PixelMessage) {
     case 'vtex:cartChanged': {
       const { items } = event.data
       if (items.length > 0) {
+        if(window.__listrak_useRefIdSetting && window.__listrak_useRefIdSetting == true)
+      {
+        items.forEach(item => {
+          _ltk.SCA.AddItemWithLinks(
+            item.productRefId,
+            item.quantity,
+            item.price.toString(),
+            item.name,
+            item.imageUrl,
+            item.detailUrl
+          )
+        })
+      }
+      else
+      {
         items.forEach(item => {
           _ltk.SCA.AddItemWithLinks(
             item.skuId,
@@ -59,6 +74,7 @@ export function handleEvents(event: PixelMessage) {
             item.detailUrl
           )
         })
+      }
         _ltk.SCA.Submit()
       } else {
         _ltk.SCA.ClearCart()
