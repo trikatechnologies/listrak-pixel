@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Added product reference id option to all relevant event tracking
+
 ## [1.0.1] - 2020-02-26
 
 ### Added

@@ -2,7 +2,8 @@
 /* eslint-disable no-undef */
 import { canUseDOM } from 'vtex.render-runtime'
 
-import { PixelMessage } from './typings/events'
+import { PixelMessage, CartItem } from './typings/events'
+
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare var _ltk: any
@@ -34,23 +35,39 @@ export function handleEvents(event: PixelMessage) {
     }
     case 'vtex:productView': {
       const { product } = event.data
-      if (product.selectedSku && product.selectedSku.itemId) {
+      if(window.__listrak_useRefIdSetting && window.__listrak_useRefIdSetting == true)
+      {
+        if(product.selectedSku && product.selectedSku.referenceId.Value)
+        {
+        _ltk.Activity.AddProductBrowse(product.selectedSku.referenceId.Value)
+        }
+      }
+      else if (product.selectedSku && product.selectedSku.itemId) {
         _ltk.Activity.AddProductBrowse(product.selectedSku.itemId)
       }
       break
     }
     case 'vtex:cartChanged': {
       const { items } = event.data
+
+      function getProductId(product: CartItem) {
+        if(window.__listrak_useRefIdSetting && window.__listrak_useRefIdSetting == true) {
+          return product.referenceId
+        }
+        return product.skuId
+      }
+
       if (items.length > 0) {
         items.forEach(item => {
           _ltk.SCA.AddItemWithLinks(
-            item.skuId,
+            getProductId(item),
             item.quantity,
             item.price.toString(),
             item.name,
             item.imageUrl,
             item.detailUrl
-          )
+          ) 
+          
         })
         _ltk.SCA.Submit()
       } else {
@@ -80,6 +97,19 @@ export function handleEvents(event: PixelMessage) {
       _ltk.Order.TaxTotal = transactionTax.toString()
       _ltk.Order.HandlingTotal = '0'
       _ltk.Order.OrderTotal = transactionTotal.toString()
+
+      if(window.__listrak_useRefIdSetting && window.__listrak_useRefIdSetting == true)
+      {
+        transactionProducts.forEach(product => {
+          _ltk.Order.AddItem(
+            product.skuRefId,
+            product.quantity,
+            product.sellingPrice.toString()
+          )
+        })
+      }
+      else
+      {
       transactionProducts.forEach(product => {
         _ltk.Order.AddItem(
           product.id,
@@ -87,6 +117,7 @@ export function handleEvents(event: PixelMessage) {
           product.sellingPrice.toString()
         )
       })
+    }
       _ltk.Order.Submit()
       break
     }

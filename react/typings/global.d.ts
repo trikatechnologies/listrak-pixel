@@ -3,6 +3,7 @@ interface Window extends Window {
   __listrak_merchant_id: string
   __listrak_pref_center: string
   __listrak_email_ids: string[]
+  __listrak_useRefIdSetting: boolean
 }
 
 interface HTMLElement extends HTMLElement {
