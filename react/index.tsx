@@ -2,7 +2,8 @@
 /* eslint-disable no-undef */
 import { canUseDOM } from 'vtex.render-runtime'
 
-import { PixelMessage } from './typings/events'
+import { PixelMessage, CartItem } from './typings/events'
+
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare var _ltk: any
@@ -48,33 +49,26 @@ export function handleEvents(event: PixelMessage) {
     }
     case 'vtex:cartChanged': {
       const { items } = event.data
+
+      function getProductId(product: CartItem) {
+        if(window.__listrak_useRefIdSetting && window.__listrak_useRefIdSetting == true) {
+          return product.referenceId
+        }
+        return product.skuId
+      }
+
       if (items.length > 0) {
-        if(window.__listrak_useRefIdSetting && window.__listrak_useRefIdSetting == true)
-      {
         items.forEach(item => {
           _ltk.SCA.AddItemWithLinks(
-            item.refId,
+            getProductId(item),
             item.quantity,
             item.price.toString(),
             item.name,
             item.imageUrl,
             item.detailUrl
-          )
+          ) 
+          
         })
-      }
-      else
-      {
-        items.forEach(item => {
-          _ltk.SCA.AddItemWithLinks(
-            item.skuId,
-            item.quantity,
-            item.price.toString(),
-            item.name,
-            item.imageUrl,
-            item.detailUrl
-          )
-        })
-      }
         _ltk.SCA.Submit()
       } else {
         _ltk.SCA.ClearCart()
