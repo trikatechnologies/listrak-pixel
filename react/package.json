@@ -18,5 +18,5 @@
     "vtex.render-runtime": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.90.2/public/@types/vtex.render-runtime",
     "vtex.store": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.store@2.85.3/public/@types/vtex.store"
   },
-  "version": "1.0.2"
+  "version": "1.0.3"
 }

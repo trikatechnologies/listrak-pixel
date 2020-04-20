@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.3] - 2020-04-20
+
 ### Added
 
 - For pixel events: Added functions to get appropriate product ID depending on app setting
