@@ -2,7 +2,7 @@
   ;(function() {
     var merchantId = '{{settings.merchantId}}'
     var prefCenter = '{{settings.prefCenterName}}'
-    var emailIds = '{{settings.emailInputIds}}'.split(',')
+    var emailIds = '{{settings.emailInputIds}}'
     var useRefIdSetting = '{{settings.useRefId}}'
     if (!merchantId) {
       console.error(
@@ -14,7 +14,11 @@
       window.__listrak_merchant_id = merchantId
       window.__listrak_pref_center = prefCenter
       window.__listrak_email_ids = emailIds
+        ? decodeURIComponent(emailIds).split(',')
+        : ''
       window.__listrak_useRefIdSetting = useRefIdSetting
+        ? JSON.parse(useRefIdSetting)
+        : false
       var e = document.createElement('script')
       ;(e.type = 'text/javascript'),
         (e.async = true),
