@@ -52,11 +52,13 @@ const OnSiteRecommendations: StorefrontFunctionComponent<Props> = ({
   }, [templateHTML])
 
   useEffect(() => {
-    _ltk.Recommender.AddField('SalePrice')
-    _ltk.Recommender.AddField('Price')
-    _ltk.Recommender.AddField('Brand')
-    _ltk.Recommender.AddField('MSRP')
-    _ltk.Recommender.Render()
+    if (_ltk) {
+      _ltk.Recommender.AddField('SalePrice')
+      _ltk.Recommender.AddField('Price')
+      _ltk.Recommender.AddField('Brand')
+      _ltk.Recommender.AddField('MSRP')
+      _ltk.Recommender.Render()
+    }
   }, [])
   if (merchandiseBlockId == '' || templateHTML == '' || !canUseDOM) return null
   return (

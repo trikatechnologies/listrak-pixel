@@ -252,9 +252,14 @@ export interface Item {
   itemId: string
   name: string
   ean?: string // TODO: provide this info at productImpression
-  referenceId: { Key: string; Value: string }
+  referenceId: ReferenceId[]
   seller?: Seller
   sellers: Seller[]
+}
+
+interface ReferenceId {
+  Key: string
+  Value: string
 }
 
 export interface Seller {

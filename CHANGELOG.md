@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- For pixel events: Added functions to get appropriate product ID depending on app setting
+
+### Fixed
+
+- App settings are now properly saved as window variables: `listrak_email_ids` string is decoded before splitting by comma, `listrak_useRefIdSetting` is cast to a boolean
+
+- `OnSiteRecommendations` component now checks for existence of `_ltk` object before rendering widget
+
 ## [1.0.2] - 2020-04-01
 
 ### Added
