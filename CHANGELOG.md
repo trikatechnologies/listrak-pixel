@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- App settings for On-Site Recommendations are now loaded from props
+
+### Fixed
+
+- On-Site Recommendations now includes AddSku() Listrak SDK call
+
 ## [1.0.3] - 2020-04-20
 
 ### Added

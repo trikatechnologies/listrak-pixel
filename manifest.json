@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "vtex.pixel-interfaces": "1.x",
-    "vtex.store": "2.x"
+    "vtex.store": "2.x",
+    "vtex.product-context": "0.x"
   },
   "settingsSchema": {
     "title": "Listrak",
@@ -37,7 +38,8 @@
       "useRefId": {
         "title": "Use Reference Id",
         "description": "Use reference Id rather than product id to link reviews to products",
-        "type": "boolean"
+        "type": "boolean",
+        "access": "public"
       }
     }
   },
