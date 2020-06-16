@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { defineMessages } from 'react-intl'
 import { canUseDOM } from 'vtex.render-runtime'
+import useProduct from 'vtex.product-context/useProduct'
 import insane from 'insane'
 
 declare const _ltk: any
@@ -46,21 +47,38 @@ const sanitizerConfig = {
 const OnSiteRecommendations: StorefrontFunctionComponent<Props> = ({
   merchandiseBlockId,
   templateHTML,
+  appSettings,
 }) => {
+  const { selectedItem } = useProduct()
+  const { useRefId } = appSettings
+  const [rendered, setRendered] = useState(false)
+
   const html = useMemo(() => {
     return insane(templateHTML, sanitizerConfig)
   }, [templateHTML])
 
   useEffect(() => {
-    if (_ltk) {
-      _ltk.Recommender.AddField('SalePrice')
-      _ltk.Recommender.AddField('Price')
-      _ltk.Recommender.AddField('Brand')
-      _ltk.Recommender.AddField('MSRP')
-      _ltk.Recommender.Render()
-    }
-  }, [])
-  if (merchandiseBlockId == '' || templateHTML == '' || !canUseDOM) return null
+    if (
+      typeof _ltk === 'undefined' ||
+      typeof useRefId === 'undefined' ||
+      !selectedItem ||
+      rendered
+    )
+      return
+    setRendered(true)
+    _ltk.Recommender.AddField('SalePrice')
+    _ltk.Recommender.AddField('Price')
+    _ltk.Recommender.AddField('Brand')
+    _ltk.Recommender.AddField('MSRP')
+    _ltk.Recommender.AddSku(
+      useRefId ? selectedItem.referenceId[0]?.Value : selectedItem.itemId
+    )
+    _ltk.Recommender.Render()
+  }, [rendered, selectedItem, useRefId])
+
+  if (!merchandiseBlockId || !templateHTML || !canUseDOM || !selectedItem)
+    return null
+
   return (
     <div
       className="ltk-recommendations"
@@ -77,6 +95,7 @@ const OnSiteRecommendations: StorefrontFunctionComponent<Props> = ({
 interface Props {
   merchandiseBlockId: string
   templateHTML: string
+  appSettings: any
 }
 
 OnSiteRecommendations.defaultProps = {
