@@ -66,13 +66,13 @@ const OnSiteRecommendations: StorefrontFunctionComponent<Props> = ({
     )
       return
     setRendered(true)
+    _ltk.Recommender.AddSku(
+      useRefId ? selectedItem.referenceId[0]?.Value : selectedItem.itemId
+    )
     _ltk.Recommender.AddField('SalePrice')
     _ltk.Recommender.AddField('Price')
     _ltk.Recommender.AddField('Brand')
     _ltk.Recommender.AddField('MSRP')
-    _ltk.Recommender.AddSku(
-      useRefId ? selectedItem.referenceId[0]?.Value : selectedItem.itemId
-    )
     _ltk.Recommender.Render()
   }, [rendered, selectedItem, useRefId])
 

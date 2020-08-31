@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Update docs
+
+### Fixed
+
+- Report price in dollars for cart changed events instead of in cents
+- Send data to Listrak only after Listrak SDK reaches ready state
+
 ## [1.1.0] - 2020-06-16
 
 ### Changed

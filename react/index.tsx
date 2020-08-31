@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable no-var */
 /* eslint-disable no-undef */
 import { canUseDOM } from 'vtex.render-runtime'
@@ -9,8 +11,8 @@ import {
   ProductOrder,
 } from './typings/events'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare var _ltk: any
+declare var _ltk_util: any
 
 function addPixelImage() {
   const token = window.__listrak_merchant_id
@@ -48,42 +50,116 @@ function getOrderProductId(product: ProductOrder) {
 export function handleEvents(event: PixelMessage) {
   switch (event.data.eventName) {
     case 'vtex:pageView': {
-      _ltk.SCA.CaptureEmail('newsletter-input')
-      if (window.__listrak_email_ids.length > 0) {
-        window.__listrak_email_ids.forEach(emailId => {
-          _ltk.SCA.CaptureEmail(emailId)
-        })
-      }
-      _ltk.Activity.AddPageBrowse()
-      _ltk.Activity.Submit()
+      ;(() => {
+        if (typeof _ltk === 'object') {
+          ltkCode()
+        } else {
+          ;(d => {
+            if (document.addEventListener)
+              document.addEventListener('ltkAsyncListener', d)
+            else {
+              const e = document.documentElement
+              e.ltkAsyncProperty = 0
+              e.attachEvent('onpropertychange', (f: any) => {
+                if (f.propertyName === 'ltkAsyncProperty') {
+                  d()
+                }
+              })
+            }
+          })(() => {
+            ltkCode()
+          })
+        }
+        function ltkCode() {
+          _ltk_util.ready(() => {
+            _ltk.SCA.CaptureEmail('newsletter-input')
+            if (window.__listrak_email_ids.length > 0) {
+              window.__listrak_email_ids.forEach(emailId => {
+                _ltk.SCA.CaptureEmail(emailId)
+              })
+            }
+            _ltk.Activity.AddPageBrowse()
+            _ltk.Activity.Submit()
+          })
+        }
+      })()
       break
     }
     case 'vtex:productView': {
       const { product } = event.data
-      if (product.selectedSku) {
-        const productId = getProductId(product)
-        if (productId) _ltk.Activity.AddProductBrowse(productId)
-      }
+      ;(() => {
+        if (typeof _ltk === 'object') {
+          ltkCode()
+        } else {
+          ;(d => {
+            if (document.addEventListener)
+              document.addEventListener('ltkAsyncListener', d)
+            else {
+              const e = document.documentElement
+              e.ltkAsyncProperty = 0
+              e.attachEvent('onpropertychange', (f: any) => {
+                if (f.propertyName === 'ltkAsyncProperty') {
+                  d()
+                }
+              })
+            }
+          })(() => {
+            ltkCode()
+          })
+        }
+        function ltkCode() {
+          _ltk_util.ready(() => {
+            if (!product.selectedSku) return
+            const productId = getProductId(product)
+            if (!productId) return
+            _ltk.Activity.AddProductBrowse(productId)
+          })
+        }
+      })()
       break
     }
     case 'vtex:cartChanged': {
       const { items } = event.data
-
-      if (items.length > 0) {
-        items.forEach(item => {
-          _ltk.SCA.AddItemWithLinks(
-            getCartProductId(item),
-            item.quantity,
-            item.price.toString(),
-            item.name,
-            item.imageUrl,
-            item.detailUrl
-          )
-        })
-        _ltk.SCA.Submit()
-      } else {
-        _ltk.SCA.ClearCart()
-      }
+      ;(() => {
+        if (typeof _ltk === 'object') {
+          ltkCode()
+        } else {
+          ;(d => {
+            if (document.addEventListener)
+              document.addEventListener('ltkAsyncListener', d)
+            else {
+              const e = document.documentElement
+              e.ltkAsyncProperty = 0
+              e.attachEvent('onpropertychange', (f: any) => {
+                if (f.propertyName === 'ltkAsyncProperty') {
+                  d()
+                }
+              })
+            }
+          })(() => {
+            ltkCode()
+          })
+        }
+        function ltkCode() {
+          _ltk_util.ready(() => {
+            if (items.length > 0) {
+              items.forEach(item => {
+                _ltk.SCA.AddItemWithLinks(
+                  getCartProductId(item),
+                  item.quantity,
+                  (item.price / 100).toString(),
+                  item.name,
+                  item.imageUrl,
+                  item.detailUrl
+                )
+              })
+              _ltk.SCA.Submit()
+            } else {
+              _ltk.SCA.ClearCart()
+            }
+          })
+        }
+      })()
       break
     }
     case 'vtex:orderPlaced': {
@@ -97,31 +173,56 @@ export function handleEvents(event: PixelMessage) {
         transactionTax,
         transactionTotal,
       } = event.data
-      _ltk.Order.SetCustomer(
-        visitorContactInfo[0],
-        visitorContactInfo[1],
-        visitorContactInfo[2]
-      )
-      _ltk.Order.OrderNumber = transactionId
-      _ltk.Order.ItemTotal = transactionSubtotal.toString()
-      _ltk.Order.ShippingTotal = transactionShipping.toString()
-      _ltk.Order.TaxTotal = transactionTax.toString()
-      _ltk.Order.HandlingTotal = '0'
-      _ltk.Order.OrderTotal = transactionTotal.toString()
+      ;(() => {
+        if (typeof _ltk === 'object') {
+          ltkCode()
+        } else {
+          ;(d => {
+            if (document.addEventListener)
+              document.addEventListener('ltkAsyncListener', d)
+            else {
+              const e = document.documentElement
+              e.ltkAsyncProperty = 0
+              e.attachEvent('onpropertychange', (f: any) => {
+                if (f.propertyName === 'ltkAsyncProperty') {
+                  d()
+                }
+              })
+            }
+          })(() => {
+            ltkCode()
+          })
+        }
+        function ltkCode() {
+          _ltk_util.ready(() => {
+            _ltk.Order.SetCustomer(
+              visitorContactInfo[0],
+              visitorContactInfo[1],
+              visitorContactInfo[2]
+            )
+            _ltk.Order.OrderNumber = transactionId
+            _ltk.Order.ItemTotal = transactionSubtotal.toString()
+            _ltk.Order.ShippingTotal = transactionShipping.toString()
+            _ltk.Order.TaxTotal = transactionTax.toString()
+            _ltk.Order.HandlingTotal = '0'
+            _ltk.Order.OrderTotal = transactionTotal.toString()
 
-      transactionProducts.forEach(product => {
-        _ltk.Order.AddItem(
-          getOrderProductId(product),
-          product.quantity,
-          product.sellingPrice.toString()
-        )
-      })
+            transactionProducts.forEach(product => {
+              _ltk.Order.AddItem(
+                getOrderProductId(product),
+                product.quantity,
+                product.sellingPrice.toString()
+              )
+            })
 
-      _ltk.Order.Submit()
+            _ltk.Order.Submit()
+          })
+        }
+      })()
       break
     }
     default: {
-      return
+      break
     }
   }
 }
