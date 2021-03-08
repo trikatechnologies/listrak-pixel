@@ -72,7 +72,6 @@ export function handleEvents(event: PixelMessage) {
         }
         function ltkCode() {
           _ltk_util.ready(() => {
-            _ltk.SCA.CaptureEmail('newsletter-input')
             if (window.__listrak_email_ids.length > 0) {
               window.__listrak_email_ids.forEach(emailId => {
                 _ltk.SCA.CaptureEmail(emailId)
@@ -245,13 +244,6 @@ export function handleEvents(event: PixelMessage) {
         function ltkCode() {
           _ltk_util.ready(() => {
             _ltk.SCA.CaptureEmail('newsletter-input')
-            if (window.__listrak_email_ids.length > 0) {
-              window.__listrak_email_ids.forEach(emailId => {
-                _ltk.SCA.CaptureEmail(emailId)
-              })
-            }
-            _ltk.Activity.AddPageBrowse()
-            _ltk.Activity.Submit()
           })
         }
       })()
