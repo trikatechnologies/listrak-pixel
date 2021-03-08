@@ -72,7 +72,6 @@ export function handleEvents(event: PixelMessage) {
         }
         function ltkCode() {
           _ltk_util.ready(() => {
-            _ltk.SCA.CaptureEmail('newsletter-input')
             if (window.__listrak_email_ids.length > 0) {
               window.__listrak_email_ids.forEach(emailId => {
                 _ltk.SCA.CaptureEmail(emailId)
@@ -216,6 +215,35 @@ export function handleEvents(event: PixelMessage) {
             })
 
             _ltk.Order.Submit()
+          })
+        }
+      })()
+      break
+    }
+    case 'vtex:newsletterInput': {
+      ;(() => {
+        if (typeof _ltk === 'object') {
+          ltkCode()
+        } else {
+          ;(d => {
+            if (document.addEventListener)
+              document.addEventListener('ltkAsyncListener', d)
+            else {
+              const e = document.documentElement
+              e.ltkAsyncProperty = 0
+              e.attachEvent('onpropertychange', (f: any) => {
+                if (f.propertyName === 'ltkAsyncProperty') {
+                  d()
+                }
+              })
+            }
+          })(() => {
+            ltkCode()
+          })
+        }
+        function ltkCode() {
+          _ltk_util.ready(() => {
+            _ltk.SCA.CaptureEmail('newsletter-input')
           })
         }
       })()
