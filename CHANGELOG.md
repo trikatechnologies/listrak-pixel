@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- `newsletterInput` Pixel event to handle newsletter input. 
+
 ## [1.1.1] - 2020-08-31
 
 ### Changed

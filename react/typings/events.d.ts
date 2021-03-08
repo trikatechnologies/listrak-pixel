@@ -13,6 +13,7 @@ export interface PixelMessage extends MessageEvent {
     | SearchPageInfoData
     | UserData
     | CartIdData
+    | NewsletterInputData
 }
 
 export interface EventData {
@@ -88,6 +89,11 @@ export interface PageViewData extends EventData {
   pageTitle: string
   pageUrl: string
   referrer: string
+}
+
+export interface NewsletterInputData extends EventData {
+  event: 'newsletterInput'
+  eventName: 'vtex:newsletterInput'
 }
 
 export interface AddToCartData extends EventData {
@@ -244,7 +250,7 @@ export interface ProductSummary extends Product {
 
 export interface ProductDetail extends Product {
   categoryId: string
-  categoryTree: { id: string; name: string }[]
+  categoryTree: Array<{ id: string; name: string }>
   selectedSku: Item
 }
 
