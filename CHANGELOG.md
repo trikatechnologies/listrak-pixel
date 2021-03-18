@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Configuration to separate abandonment and newsletter subscription events
+
 ## [1.2.0] - 2021-03-08
 
 ### Added
 
-- `newsletterInput` Pixel event to handle newsletter input. 
+- `newsletterInput` Pixel event to handle newsletter input.
 
 ## [1.1.1] - 2020-08-31
 
