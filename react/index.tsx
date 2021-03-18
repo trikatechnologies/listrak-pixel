@@ -72,11 +72,26 @@ export function handleEvents(event: PixelMessage) {
         }
         function ltkCode() {
           _ltk_util.ready(() => {
+            const subscriptionPoint = window.__listrak_subscription_point
+            const subscriptionIds = window.__listrak_subscription_ids
+            if (subscriptionPoint && subscriptionIds.length > 0) {
+              subscriptionIds.forEach(group => {
+                _ltk.Signup.New(
+                  subscriptionPoint,
+                  group.input,
+                  _ltk.Signup.TYPE.CLICK,
+                  group.submit,
+                  'email'
+                )
+              })
+            }
+
             if (window.__listrak_email_ids.length > 0) {
               window.__listrak_email_ids.forEach(emailId => {
                 _ltk.SCA.CaptureEmail(emailId)
               })
             }
+
             _ltk.Activity.AddPageBrowse()
             _ltk.Activity.Submit()
           })
@@ -243,7 +258,24 @@ export function handleEvents(event: PixelMessage) {
         }
         function ltkCode() {
           _ltk_util.ready(() => {
-            _ltk.SCA.CaptureEmail('newsletter-input')
+            const subscriptionPoint = window.__listrak_subscription_point
+            const newsletterInputId = window.__listrak_email_ids.some(
+              id => id === 'newsletter-input'
+            )
+
+            if (subscriptionPoint) {
+              _ltk.Signup.New(
+                subscriptionPoint,
+                `[class^=vtex-store-components][class*=-newsletter] form input`,
+                _ltk.Signup.TYPE.CLICK,
+                `[class^=vtex-store-components][class*=-newsletter] form button`,
+                'email'
+              )
+            }
+
+            if (newsletterInputId) {
+              _ltk.SCA.CaptureEmail('newsletter-input')
+            }
           })
         }
       })()

@@ -25,9 +25,19 @@
         "description": "Enter your Merchant ID for Listrak",
         "type": "string"
       },
+      "subscriptionPoint": {
+        "title": " Subscription Point ID",
+        "description": "Enter the `Subscribe ID` of the email Subscription Point from your Listrak account",
+        "type": "string"
+      },
+      "subscriptionIds": {
+        "title": "Subscription Form IDs",
+        "description": "Enter IDs of any subscription email input and associated submit button, separated by commas",
+        "type": "string"
+      },
       "emailInputIds": {
-        "title": "Email Input Field IDs",
-        "description": "Enter IDs of any email input fields you wish to be tracked, separated by commas. 'newsletter-input' is always tracked",
+        "title": "Email Input Field IDs for Abandonment",
+        "description": "Enter IDs of any email input fields you wish to be tracked for abandonment, separated by commas",
         "type": "string"
       },
       "prefCenterName": {

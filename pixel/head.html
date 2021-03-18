@@ -3,6 +3,8 @@
     var merchantId = '{{settings.merchantId}}'
     var prefCenter = '{{settings.prefCenterName}}'
     var emailIds = '{{settings.emailInputIds}}'
+    var subscriptionPoint = '{{settings.subscriptionPoint}}'
+    var subscriptionIds = '{{settings.subscriptionIds}}'
     var useRefIdSetting = '{{settings.useRefId}}'
     if (!merchantId) {
       console.error(
@@ -15,6 +17,20 @@
       window.__listrak_pref_center = prefCenter
       window.__listrak_email_ids = emailIds
         ? decodeURIComponent(emailIds).split(',')
+        : ''
+      window.__listrak_subscription_ids = subscriptionIds
+        ? decodeURIComponent(subscriptionIds)
+            .split(',')
+            .reduce(
+              (acc, curr, i, ids) =>
+                i % 2 === 0
+                  ? acc
+                  : [...acc, { input: ids[i - 1], submit: curr }],
+              []
+            )
+        : []
+      window.__listrak_subscription_point = subscriptionPoint
+        ? decodeURIComponent(subscriptionPoint)
         : ''
       window.__listrak_useRefIdSetting = useRefIdSetting
         ? JSON.parse(useRefIdSetting)

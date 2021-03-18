@@ -12,7 +12,11 @@ This app provides pixel integration for Listrak metrics and cart abandonment fun
 
 - **Merchant ID**: Input your Listrak Merchant ID here.
 
-- **Email Input Field IDs**: Listrak's cart abandonment feature works in part by capturing email addresses when shopper type them into certain fields. By default, the email input field with ID "newsletter-input" will be tracked, but additional field IDs can be specified here, separated with commas and no spaces like `emailField1,emailField2`.
+- **Subscription Point ID**: Input your `Subscribe ID` of the email Subscription Point from your Listrak account.
+
+- **Subscription Form IDs**: To capture a shoppers opt-in to an email subscription, enter the field IDs associated with the subscription form email input and submit button. Enter both IDs separated with commas and no spaces like `emailInputId,submitButtonId`. **If the Newsletter block from the `vtex.store-component` is used, no entry is necessary**.
+
+- **Email Input Field IDs**: Listrak's cart abandonment feature works in part by capturing email addresses when shoppers type them into certain fields. These field IDs can be specified here, separated with commas and no spaces like `emailField1,emailField2`.
 
 - **Preference Center Name**: This app creates a new store route with the path `/preference-center` which displays the Listrak Preference Center. Referencing your Listrak Preference Center integration instructions, input the value for the `data-ltk-prefcenter` attribute of the Preference Center div here.
 
