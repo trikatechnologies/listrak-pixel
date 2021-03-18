@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.3.0] - 2021-03-18
+
 ### Added
 
 - Configuration to separate abandonment and newsletter subscription events
