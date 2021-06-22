@@ -1,0 +1,19 @@
+{
+  "stack": "nodejs",
+  "memory": 512,
+  "ttl": 43200,
+  "timeout": 40,
+  "minReplicas": 2,
+  "maxReplicas": 4,
+  "workers": 1,
+  "events": {
+    "broadcasterCatalog": {
+      "sender": "vtex.broadcaster-worker",
+      "keys": ["broadcaster.sku", "broadcaster.product"]
+    },
+    "broadcasterOrder": {
+      "sender": "vtex.orders-broadcast",
+      "topics": ["cancel", "invoiced"]
+    }
+  }
+}

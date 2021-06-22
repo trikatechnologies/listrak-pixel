@@ -4672,17 +4672,17 @@ verror@1.10.0:
   version "0.0.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.pixel-interfaces@1.1.1/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
 
-"vtex.product-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.7.1/public/@types/vtex.product-context":
-  version "0.7.1"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.7.1/public/@types/vtex.product-context#2476a5831bdd066e4ce99e0a004480b0ee445007"
+"vtex.product-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.7/public/@types/vtex.product-context":
+  version "0.9.7"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.7/public/@types/vtex.product-context#4024c589f1ba318e92219a88bf18b4e3774dc85c"
 
-"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.105.0/public/@types/vtex.render-runtime":
-  version "8.105.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.105.0/public/@types/vtex.render-runtime#2748efae562e94dd7f4fcf61880fd8ed4434444b"
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.128.2/public/@types/vtex.render-runtime":
+  version "8.128.2"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.128.2/public/@types/vtex.render-runtime#67f5975f7edd73c9afa7bee57734540c0ead5428"
 
-"vtex.store@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.96.1/public/@types/vtex.store":
-  version "2.96.1"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.96.1/public/@types/vtex.store#2085868375f2631d6b32e81464a0076df529516f"
+"vtex.store@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.113.0/public/@types/vtex.store":
+  version "2.113.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.113.0/public/@types/vtex.store#6950a404b7d2882847bad0e3bf6febe88bbf3bf4"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
