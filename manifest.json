@@ -9,13 +9,64 @@
     "store": "0.x",
     "pixel": "0.x",
     "messages": "1.x",
+    "node": "6.x",
     "docs": "0.x"
   },
   "dependencies": {
     "vtex.pixel-interfaces": "1.x",
     "vtex.store": "2.x",
-    "vtex.product-context": "0.x"
+    "vtex.product-context": "0.x",
+    "vtex.orders-broadcast": "0.x",
+    "vtex.broadcaster": "0.x",
+    "vtex.broadcaster-worker": "0.x"
   },
+  "billingOptions": {
+    "free": true,
+    "support": {
+      "url": "https://support.vtex.com/hc/requests"
+    },
+    "type": "free",
+    "availableCountries": ["*"]
+  },
+  "policies": [
+    {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "vtex.broadcaster-worker:index-routes"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/catalog/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/fulfillment/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.listrak.com/data/v1",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "auth.listrak.com",
+        "path": "/OAuth2/*"
+      }
+    },
+    {
+      "name": "update-app-settings"
+    }
+  ],
   "settingsSchema": {
     "title": "Listrak",
     "type": "object",
@@ -50,6 +101,22 @@
         "description": "Use reference Id rather than product id to link reviews to products",
         "type": "boolean",
         "access": "public"
+      },
+      "listrakId": {
+        "title": "Client ID",
+        "description": "Listrak data integration client ID",
+        "type": "string"
+      },
+      "listrakSecret": {
+        "title": "Client Secret",
+        "description": "Listrak data integration client secret",
+        "type": "string"
+      },
+      "fullCatalogImport": {
+        "title": "Full Catalog Import",
+        "description": "Import your full product catalog to Listrak on the next SKU update",
+        "type": "boolean",
+        "default": false
       }
     }
   },

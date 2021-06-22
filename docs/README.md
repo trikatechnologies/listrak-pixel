@@ -4,6 +4,8 @@
 
 This app provides pixel integration for Listrak metrics and cart abandonment functionality, and provides related routes and blocks for use in an account's store-theme.
 
+Additionally, if you would like the app to send Order, Product, and Customer data to Listrak, you can create a [Listrak Data Integration](#Listrak-Data-Integration).
+
 ## Configuration
 
 1. [Install](https://vtex.io/docs/recipes/store/installing-an-app) the `listrak-pixel` app in the desired account;
@@ -19,6 +21,14 @@ This app provides pixel integration for Listrak metrics and cart abandonment fun
 - **Email Input Field IDs**: Listrak's cart abandonment feature works in part by capturing email addresses when shoppers type them into certain fields. These field IDs can be specified here, separated with commas and no spaces like `emailField1,emailField2`.
 
 - **Preference Center Name**: This app creates a new store route with the path `/preference-center` which displays the Listrak Preference Center. Referencing your Listrak Preference Center integration instructions, input the value for the `data-ltk-prefcenter` attribute of the Preference Center div here.
+
+The settings below are only needed if you have created a [Listrak Data Integration](#Listrak-Data-Integration).
+
+- **Client ID**: Your Listrak Data Integration Client ID.
+
+- **Client Secret**: Your Listrak Data Integration Client Secret.
+
+- **Full Catalog Import**: Send your entire product catalog to Listrak. This will happen on the first SKU update after enabling the option.
 
 ## (Optional) On-Site Recommendation Integration Block
 
@@ -143,3 +153,25 @@ var biJsHost = 'https:' == document.location.protocol ? 'https://' : 'http://'
 ```
 
 :warning: Make sure to replace `'LISTRAK-MERCHANT-ID'` in the second-to-last line with your Listrak Merchant ID. No other customizations are needed.
+
+## Listrak Data Integration
+
+Enabling this feature will send additional Order, Customer, and Product data to listrak.
+
+- Orders data is sent when an order has been invoiced and/or updated if canceled.
+- Customer data is sent when the order is invoiced.
+- Product data is sent when a SKU has been created or updated.
+
+To provide additional data to Listrak, you will need to create a new integration from the Listrak application and allow access to the Listrak API. Listrak provides some instructions [here](https://api.listrak.com/data#section/INTEGRATION-SETUP).
+
+**Access Levels**
+
+The app supports sending Order, Customer, and Product data and will need these access levels selected.
+
+**IP Address Whitelist**
+
+There are three possible IPs the app may use to send data to the Listrak API, these will need to be added to the integration's whitelist.
+
+- 34.199.112.14
+- 107.23.210.212
+- 52.73.206.45
