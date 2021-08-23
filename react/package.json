@@ -17,5 +17,5 @@
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.128.2/public/@types/vtex.render-runtime",
     "vtex.store": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.113.0/public/@types/vtex.store"
   },
-  "version": "2.0.0"
+  "version": "2.0.1"
 }
