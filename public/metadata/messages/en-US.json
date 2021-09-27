@@ -1,0 +1,14 @@
+{
+  "name": "Listrak",
+  "headline": "Listrak pixel integration for capturing customer events.",
+  "overview": "Track and capture customer events for use in your Listrak Analytics.",
+  "features": [
+    "On-site product recommendations",
+    "Product view, cart updates, and cart abandonment tracking, ",
+    "Use your product, customer, and order data for Listrak Analytics."
+  ],
+  "websiteURL": "https://vtex.com/",
+  "support": {
+    "url": "https://help-tickets.vtex.com/en/support?app=vtex.listrak-pixel"
+  }
+}

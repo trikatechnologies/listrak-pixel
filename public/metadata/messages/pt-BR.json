@@ -1,0 +1,14 @@
+{
+  "name": "Listrak",
+  "headline": "Integração Listrak pixel para captura de eventos dos usuários.",
+  "overview": "Rastreie e capture eventos dos usuários para uso no Analytics to Listrak.",
+  "features": [
+    "Recomendação de produtos no local",
+    "Visualização de produtos, Atualizações no carrinho, e rastreio de carrinho abandonados.",
+    "Utiliza dados do Produto, Usuário e Pedidos para alimentar o Analytics do Listrak."
+  ],
+  "websiteURL": "https://vtex.com/",
+  "support": {
+    "url": "https://help-tickets.vtex.com/en/support?app=vtex.listrak-pixel"
+  }
+}
