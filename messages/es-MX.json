@@ -1,0 +1,6 @@
+{
+  "admin/editor.listrakOnSiteRecommendationsBlock.title": "Bloque de recomendaciones on-site de Listrak",
+  "admin/editor.listrakOnSiteRecommendationsBlock.description": "Ingresa un Merchandise Block ID de Listrak para mostrar un estante con recomendaciones de producto",
+  "admin/editor.listrakOnSiteRecommendationsBlock.merchandiseBlockId.title": "Merchandise Block ID",
+  "admin/editor.listrakOnSiteRecommendationsBlock.templateHTML.title": "Template HTML"
+}
