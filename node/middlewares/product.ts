@@ -47,7 +47,9 @@ const getUniqueSpecifications = (SkuSpecifications: Specification[]) => {
     .join(' | ')
 }
 
-const buildListrakProduct = (sku: Product, stock: StockItem) => {
+const buildListrakProduct = (sku: Product, stock: StockItem, settings: Settings) => {
+  const categoryValue = sku.ProductCategories[Object.keys(sku.ProductCategories).pop() as string]
+  const metaValue = getUniqueSpecifications(sku.SkuSpecifications)
   return {
     brand: sku.BrandName,
     description: sku.ProductDescription,
@@ -63,14 +65,15 @@ const buildListrakProduct = (sku: Product, stock: StockItem) => {
     linkUrl: sku.DetailUrl,
     price: stock.listPrice / 100,
     salePrice: stock.price / 100,
-    category:
-      sku.ProductCategories[Object.keys(sku.ProductCategories).pop() as string],
+    category: settings.fields?.category ? getSpecification(sku.ProductSpecifications, settings.fields?.category ) : categoryValue,
     gender: getGender(sku),
     onSale: onSale(sku),
-    subCategory: getSpecification(sku.ProductSpecifications, 'Type/Silhouette'),
+    subCategory: getSpecification(sku.ProductSpecifications, settings.fields?.subcategory || 'Type/Silhouette'),
     color: getSpecification(sku.SkuSpecifications, 'Size'),
     size: getSpecification(sku.SkuSpecifications, 'Color'),
-    meta1: getUniqueSpecifications(sku.SkuSpecifications),
+    meta1: settings.fields?.meta1 ? getSpecification(sku.ProductSpecifications, settings.fields?.meta1 ) : metaValue ,
+    meta2: getSpecification(sku.ProductSpecifications, settings.fields?.meta2 || 'meta_2'),
+    meta3: getSpecification(sku.ProductSpecifications, settings.fields?.meta3 || 'meta_3' )
   }
 }
 
@@ -127,7 +130,7 @@ export async function productHandler(
     const [stock] = stockResponse.items
 
     try {
-      listrakProduct = buildListrakProduct(sku, stock)
+      listrakProduct = buildListrakProduct(sku, stock, appSettings)
     } catch (error) {
       logger.error({
         error,

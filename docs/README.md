@@ -30,6 +30,20 @@ The settings below are only needed if you have created a [Listrak Data Integrati
 
 - **Full Catalog Import**: Send your entire product catalog to Listrak. This will happen on the first SKU update after enabling the option.
 
+**Listrak Fields and Values (Optional)** 
+
+The following optional settings allow you to map VTEX product specifications to specific Listrak fields. If left blank, they will be filled according to the default behavior explained below:
+
+- **Category**: Input the name of the product specification field containing the product's main category. If left blank, this will be automatically set as the first category that the product belongs to. 
+
+- **Sub Category**: Input the name of the product specification field containing the product's secondary category. If left blank, this will be automatically set as "Type/Silhouette".
+
+- **Meta 1**: Input the name of the product specification field containing any additional data you wish to send. If left blank, this will be automatically set as a pipe-separated list of the item's unique SKU specifications.
+
+- **Meta 2**: Input the name of the product specification field containing any additional data you wish to send. If left blank, this will be automatically set with a placeholder value of "meta_2".
+
+- **Meta 3**: Input the name of the product specification field containing any additional data you wish to send. If left blank, this will be automatically set with a placeholder value of "meta_3".
+
 ## (Optional) On-Site Recommendation Integration Block
 
 To use this optional block in your `store-theme`, you must add the Listrak app to your `store-theme`'s dependencies in `manifest.json`:
