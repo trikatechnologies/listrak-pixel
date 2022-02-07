@@ -47,7 +47,11 @@ const getUniqueSpecifications = (SkuSpecifications: Specification[]) => {
     .join(' | ')
 }
 
-const buildListrakProduct = (sku: Product, stock: StockItem, settings: Settings) => {
+const buildListrakProduct = (
+  sku: Product, 
+  stock: StockItem, 
+  settings: Settings
+) => {
   const categoryValue = sku.ProductCategories[Object.keys(sku.ProductCategories).pop() as string]
   const metaValue = getUniqueSpecifications(sku.SkuSpecifications)
   return {
