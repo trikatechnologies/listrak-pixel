@@ -4,8 +4,11 @@ import { defineMessages } from 'react-intl'
 import { canUseDOM } from 'vtex.render-runtime'
 import useProduct from 'vtex.product-context/useProduct'
 import insane from 'insane'
+import { useCssHandles } from 'vtex.css-handles'
 
 declare const _ltk: any
+
+const CSS_HANDLES = ['recommendations'] as const
 
 const sanitizerConfig = {
   allowedTags: [
@@ -52,6 +55,7 @@ const OnSiteRecommendations: StorefrontFunctionComponent<Props> = ({
   const { selectedItem } = useProduct()
   const { useRefId } = appSettings
   const [rendered, setRendered] = useState(false)
+  const handles = useCssHandles(CSS_HANDLES)
 
   const html = useMemo(() => {
     return insane(templateHTML, sanitizerConfig)
@@ -81,7 +85,7 @@ const OnSiteRecommendations: StorefrontFunctionComponent<Props> = ({
 
   return (
     <div
-      className="ltk-recommendations"
+      className={`ltk-recommendations ${handles.recommendations}`}
       data-ltk-merchandiseblock={merchandiseBlockId}
     >
       <script

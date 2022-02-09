@@ -45,7 +45,7 @@ Then you may use this block in your layouts:
 - `"listrak-recommendations"`: The Listrak app provides this block which is designed to be added to the product page (`store.product`). It renders Listrak's On-Site Recommendations product shelf. The block takes two props:
 
 | Prop name            | Type     | Description                                                               |
-| -------------------- | -------- | ------------------------------------------------------------------------- |
+|----------------------|----------|---------------------------------------------------------------------------|
 | `merchandiseBlockId` | `String` | The Merchandise Block ID from Listrak's admin. Default: `''`              |
 | `templateHTML`       | `String` | The HTML template for the recommender from Listrak's admin. Default: `''` |
 
@@ -175,3 +175,11 @@ There are three possible IPs the app may use to send data to the Listrak API, th
 - 34.199.112.14
 - 107.23.210.212
 - 52.73.206.45
+
+## Customization
+
+In order to apply CSS customizations to this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
+
+| CSS Handles       |
+|-------------------|
+| `recommendations` |
