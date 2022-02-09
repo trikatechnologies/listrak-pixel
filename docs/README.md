@@ -35,7 +35,7 @@ The settings below are only needed if you have created a [Listrak Data Integrati
 To use this optional block in your `store-theme`, you must add the Listrak app to your `store-theme`'s dependencies in `manifest.json`:
 
 ```json
-"dependencies": {
+"peerDependencies": {
     "vtex.listrak-pixel": "1.x"
   }
 ```
