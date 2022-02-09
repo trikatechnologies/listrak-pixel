@@ -32,7 +32,7 @@ The settings below are only needed if you have created a [Listrak Data Integrati
 
 ## (Optional) On-Site Recommendation Integration Block
 
-To use this optional block in your `store-theme`, you must add the Listrak app to your `store-theme`'s dependencies in `manifest.json`:
+To use this optional block in your `store-theme`, you must add the Listrak app to your `store-theme`'s peer dependencies in `manifest.json`:
 
 ```json
 "peerDependencies": {
