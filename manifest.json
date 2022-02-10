@@ -18,7 +18,8 @@
     "vtex.product-context": "0.x",
     "vtex.orders-broadcast": "0.x",
     "vtex.broadcaster": "0.x",
-    "vtex.broadcaster-worker": "0.x"
+    "vtex.broadcaster-worker": "0.x",
+    "vtex.css-handles": "0.x"
   },
   "billingOptions": {
     "free": true,
