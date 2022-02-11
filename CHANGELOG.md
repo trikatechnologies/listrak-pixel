@@ -33,6 +33,34 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- Listrak product payload fields (Category, Sub category, Meta 1, Meta 2, Meta 3) in the app settings to make it available for the admin to change.
+
+## [2.0.3] - 2022-02-10
+
+### Added
+
+- CSS Handle
+
+### Added
+
+- Quality engineering actions
+
+## [2.0.2] - 2021-09-27
+
+### Added
+
+- App store metadata
+
+## [2.0.1] - 2021-08-23
+
+### Added
+
+- Crowdin file
+
+## [2.0.0] - 2021-06-22
+
+### Added
+
 - Send Sku/Order/Product data to Listrak API
 
 ## [1.3.0] - 2021-03-18

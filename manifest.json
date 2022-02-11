@@ -120,6 +120,38 @@
         "description": "Import your full product catalog to Listrak on the next SKU update",
         "type": "boolean",
         "default": false
+      },
+      "fields": {
+        "title": "Listrak Fields & Values",
+        "description": "This will map the vtex product specifications with listrak fields",
+        "type": "object",
+        "properties": {
+          "category": {
+            "title": "Category",
+            "description": "Product specification value for category fields in Listrak payload",
+            "type": "string"
+          },
+          "subcategory": {
+            "title": "Sub Category",
+            "description": "Product specification value for sub category fields in Listrak payload",
+            "type": "string"
+          },
+          "meta1": {
+            "title": "Meta 1",
+            "description": "Product specification value for meta1 fields in Listrak payload",
+            "type": "string"
+          },
+          "meta2": {
+            "title": "Meta 2",
+            "description": "Product specification value for meta2 fields in Listrak payload",
+            "type": "string"
+          },
+          "meta3": {
+            "title": "Meta 3",
+            "description": "Product specification value for meta3 fields in Listrak payload",
+            "type": "string"
+          }
+        }
       }
     }
   },
